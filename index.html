@@ -26,7 +26,7 @@
 				<div id="code">
 					<span class="comments">/**</span><br />
 					<span class="space" /><span class="comments">*2017—01-27,</span><br />
-					<!--<span class="space" /><span class="comments">*2018-01-27.</span><br />-->
+					<span class="space" /><span id="nowDate" class="comments">*2018-01-27.</span><br />
 					<span class="space" /><span class="comments">**/</span><br /> Boy name = <span class="keyword">Mr</span> 刘丹<br /> Girl name = <span class="keyword">Mrs</span> 王玲玲<br />
 					<span class="comments">// 当你老了，头发花白，睡意沉沉 </span><br /> When you are old and grey and full of sleep<br />
 					<span class="comments">// 倦坐在炉边，取下这本书来</span><br /> And nodding by the fire，take down this book<br />
@@ -75,7 +75,21 @@
 			together.setMinutes(0);
 			together.setSeconds(0);
 			together.setMilliseconds(0);
+			//设置时间
+            var today = new Date();
+            var date;
+            var month = today.getMonth() + 1;
+            var monthDate = today.getDate();
+            if (month < 10){
+                month = "0" + month;
+			}
+			if (monthDate < 10){
+                monthDate = "0" + monthDate;
+			}
+            date = "*" + (today.getFullYear()) +"-" + month + "-" + monthDate + "." ;
+			document.getElementById("nowDate").innerText = date;
 
+			//播放
 			var a = document.getElementById("audio");
 			var btnPlay = document.getElementById("btnPlay");
 
