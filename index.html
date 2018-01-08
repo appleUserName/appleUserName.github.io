@@ -60,7 +60,9 @@
 			<div id="copyright">
 				<a href="#">....</a><br />
 				<a href="#">....</a><br />
-
+				<!--<button onclick="clickA()" id="btnPlay">暂停</button>-->
+				<input type="button" name="btnPlay" id="btnPlay" value="暂停"/>
+				<audio src="爱你一万年.mp3" id="audio" autoplay="autoplay" onclick="clickA()"></audio>
 			</div>
 		</div>
 
@@ -73,6 +75,30 @@
 			together.setMinutes(0);
 			together.setSeconds(0);
 			together.setMilliseconds(0);
+
+			var a = document.getElementById("audio");
+			var btnPlay = document.getElementById("btnPlay");
+
+			$("#btnPlay").click(function () {
+                if (a.paused){
+                    a.play();
+                    $("#btnPlay").val('暂停');
+                }else {
+                    a.pause();
+                    $("#btnPlay").val('播放');
+                }
+            });
+
+			function clickA() {
+			    if (a.paused){
+			        a.play();
+			        $("#btnPlay").html('暂停');
+				}else {
+			        a.pause();
+                    $("#btnPlay").html('播放');
+				}
+
+            }
 
 			if(!document.createElement('canvas').getContext) {
 				var msg = document.createElement("div");
